@@ -244,3 +244,14 @@ body {
     }
 
 }
+.adv { 
+    &__card {
+        display: grid;
+        grid-template-columns: 1 fr 1 fr 1 fr;
+        align-items: center;
+        gap: 128px;
+        padding: 41px 78px;
+        background: linear-gradient(264.52deg, #FFFFFF 4.95%, #E5E5E5 64.19%, #FBFBFB 88.37%);
+        border-radius: 46px;
+    }
+}
