@@ -244,3 +244,101 @@ body {
     }
 
 }
+.adv { 
+    padding: 0 236px 0 247px;
+    position: relative;
+    margin-bottom: 95px;
+    &__card {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        gap: 95px;
+        padding: 41px 78px;
+        background: linear-gradient(264.52deg, #FFFFFF 4.95%, #E5E5E5 64.19%, #FBFBFB 88.37%);
+        border-radius: 46px;
+        position: relative;
+    }
+       &__card::before {
+        content: "";
+        width: 409px;
+        height: 325px;
+        border-radius: 50%;
+        background-color: rgba(53, 198, 107, 0.3);
+        filter: blur(87.75px);
+        position: absolute;
+        top: -30px;
+        left: -150px;
+        z-index: -1;
+       }
+        &__card::after {
+        content: "";
+        width: 266px;
+        height: 229px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        filter: blur(78.2708px);
+        position: absolute;
+        top: 280px;
+        left: 830px;
+        z-index: -1;
+        }
+    &__item {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    &__image-wrapper {
+        width: 230px;
+        height: 230px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    &__circle {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+    }
+    &__title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 52px;
+        text-transform: capitalize;
+        color: $darkFontColor;
+        margin-bottom: 4px;
+    }
+    &__description {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 33px;
+        color: $darkFontColor;
+    }
+    &__star-wrapper {
+        position: absolute;
+        top: -70px;
+        left: 160px;
+        width: 155px;
+        height: 155px;
+    }
+    &__star-text {
+        position: absolute;
+        top: 75px;
+        left: 93px;
+        transform: translate(-50%, -50%);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 28px;
+        text-transform: uppercase;
+        text-align: center;
+        color: $whiteFontColor;
+    }
+}
