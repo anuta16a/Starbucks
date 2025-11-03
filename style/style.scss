@@ -244,29 +244,30 @@ body {
     }
 
 }
-.adv { 
-    padding: 0 236px 0 247px;
+.adv {
     position: relative;
-    margin-bottom: 95px;
+    margin-bottom: 136px;
     &__card {
+        max-width: 1029px;
+        margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         gap: 95px;
         padding: 41px 78px;
         background: linear-gradient(264.52deg, #FFFFFF 4.95%, #E5E5E5 64.19%, #FBFBFB 88.37%);
-        border-radius: 46px;
-        position: relative;
+        border-radius: 46px; 
+        position: relative; 
     }
        &__card::before {
-        content: "";
-        width: 409px;
+        content: ""; 
+        width: 409px; 
         height: 325px;
         border-radius: 50%;
         background-color: rgba(53, 198, 107, 0.3);
-        filter: blur(87.75px);
-        position: absolute;
-        top: -30px;
+        filter: blur(87.75px); 
+        position: absolute;  
+        top: -30px; 
         left: -150px;
         z-index: -1;
        }
@@ -344,10 +345,18 @@ body {
 }
 .cooking {
     margin-bottom: 91px;
+    position: relative;
     &__container {
         display: flex;
         align-items: center;
         gap: 289px;
+        position: relative;
+    }
+    &__decoration {
+        position: absolute;
+        z-index: -1;
+        top: 25%;
+        left: 30%;
     }
     &__image-box {
         max-width: 548px;
@@ -357,6 +366,18 @@ body {
     &__image-wrapper {
         width: 465px;
         height: 684px;
+        position: relative;
+        z-index: 0;
+    }
+    &__image-wrapper::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #237249;
+        position: absolute;
+        z-index: -1;
+        top: 36px;
+        left: -45px;
     }
     &__image {
         width: 100%;
@@ -367,9 +388,21 @@ body {
          width: 245px;
          height: 245px;
          position:absolute;
-         top: 0px;
-         left: 300px;
+         top: -50px;
+         left: 260px;
     }
+     &__star-wrapper::after {
+        content: ""; 
+        width: 299px; 
+        height: 257px;
+        border-radius: 50%; 
+        background-color: rgba(255, 255, 255, 0.1); 
+        filter: blur(78.2708px); 
+        position: absolute; 
+        top: 50px;
+        left: 50px;
+        z-index: -1;    
+     }
     &__star {
         object-fit: contain;
     }
@@ -388,5 +421,84 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
+    &__text-box {
+        max-width: 457px;
+        padding-top: 30px;
+    }
+    &__tittle {
+        color: $whiteFontColor;
+        font-family: 'Montserrat';
+        font-weight: 800;
+        font-size: 80px;
+        line-height: 88px;
+        margin-bottom: 63px;
+        position: relative;
+    }
+        &__tittle::after {
+        content: "";
+        width: 310px;
+        height: 267px;
+        border-radius: 50%;
+        background-color: rgba(53, 198, 107, 0.2);
+        filter: blur(87.75px);
+        position: absolute;
+        top: 15px;
+        left: 170px;
+        z-index: -1;
+    }
+    &__gradient-text {
+        font-family: 'Montserrat'; 
+        font-weight: 800; 
+        font-size: 80px; 
+        line-height: 88px;
+        background: $gradientFontColor; 
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+     &__description {
+        color: $lightFontColor;
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 33px;
+        letter-spacing: -0.02em;
+        margin-bottom: 63px; 
+     }
+    &__video-wrapper {
+        width: 447px;
+        height: 275px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__video-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__btn {
+        padding: 20px 43px; 
+        border-radius: 83px; 
+        border: none; 
+        background: $gradientBtnColor;  
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        cursor: pointer; 
+        position: absolute;
+    }
+    &__play {
+        position: absolute;
+        padding-right: 12px;
+    }
+    &__btn-text {
+        color: $whiteFontColor;
+        font-family: 'Montserrat';
+        font-weight: 639;
+        font-size: 24px;
+        line-height: 35px;
+    }
 }
+
