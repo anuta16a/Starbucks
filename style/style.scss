@@ -519,16 +519,16 @@ body {
         position: relative;
     }
     &__tittle::after {
-        content: "";  
-        width: 289px; 
-        height: 245px; 
-        border-radius: 50%;  
-        background-color: rgba(53, 198, 107, 0.2);  
-        filter: blur(87.75px);  
-        position: absolute;  
-        top: 15px;  
-        left: 170px;  
-        z-index: -1; 
+        content: ""; 
+        width: 289px;
+        height: 245px;
+        border-radius: 50%; 
+        background-color: rgba(53, 198, 107, 0.2); 
+        filter: blur(87.75px); 
+        position: absolute; 
+        top: 15px; 
+        left: 170px; 
+        z-index: -1;
     }
     &__gradient-text {
         font-family: 'Montserrat'; 
@@ -550,5 +550,4 @@ body {
         max-width: 444px;
     }
 }
-
 
