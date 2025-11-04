@@ -501,4 +501,54 @@ body {
         line-height: 35px;
     }
 }
+.products {
+    margin-bottom: 100px;
+    &__text-box {
+        display: flex;
+        align-items: center;
+        gap: 72px;
+        padding-left: 130px;
+    }
+    &__tittle {
+        color: $whiteFontColor;
+        font-family: 'Montserrat';
+        font-weight: 800;
+        font-size: 80px;
+        line-height: 88px;
+        max-width: 392px;
+        position: relative;
+    }
+    &__tittle::after {
+        content: "";  
+        width: 289px; 
+        height: 245px; 
+        border-radius: 50%;  
+        background-color: rgba(53, 198, 107, 0.2);  
+        filter: blur(87.75px);  
+        position: absolute;  
+        top: 15px;  
+        left: 170px;  
+        z-index: -1; 
+    }
+    &__gradient-text {
+        font-family: 'Montserrat'; 
+        font-weight: 800; 
+        font-size: 80px; 
+        line-height: 88px;
+        background: $gradientFontColor; 
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    &__description {
+        color: $lightFontColor;
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 33px;
+        letter-spacing: -0.02em;
+        max-width: 444px;
+    }
+}
+
 
