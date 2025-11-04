@@ -72,6 +72,7 @@ body {
   font-weight: 800;
   font-size: 80px;
   line-height: 88px;
+  letter-spacing: -0.03em;
   color: #FFFFFF;
   margin-bottom: 54px;
   position: relative;
@@ -520,6 +521,7 @@ body {
   font-weight: 800;
   font-size: 80px;
   line-height: 88px;
+  letter-spacing: -0.03em;
   max-width: 392px;
   position: relative;
 }
@@ -556,7 +558,7 @@ body {
 }
 
 .events {
-  margin-bottom: 80px;
+  margin-bottom: 150px;
 }
 .events__container {
   max-width: 1253px;
@@ -591,6 +593,7 @@ body {
   font-weight: 800;
   font-size: 80px;
   line-height: 88px;
+  letter-spacing: -0.03em;
   max-width: 392px;
   position: relative;
 }
@@ -709,4 +712,174 @@ body {
   padding: 20px 53px;
   margin-top: 44px;
   cursor: pointer;
+}
+
+.contacts {
+  margin-bottom: 108px;
+}
+.contacts__container {
+  max-width: 1253px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.contacts__decoration {
+  position: absolute;
+  top: 120px;
+  left: 400px;
+  z-index: -1;
+}
+.contacts__text-box {
+  max-width: 391px;
+}
+.contacts__title {
+  color: #FFFFFF;
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 88px;
+  letter-spacing: -0.03em;
+  max-width: 392px;
+  position: relative;
+  margin-bottom: 52px;
+}
+.contacts__gradient-text {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 88px;
+  background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.contacts__description {
+  color: #D9D9D9;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+  position: relative;
+}
+.contacts__description::after {
+  content: "";
+  width: 328px;
+  height: 262px;
+  border-radius: 50%;
+  background-color: rgba(53, 198, 107, 0.15);
+  filter: blur(78.2708px);
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  z-index: -1;
+}
+.contacts__list {
+  list-style-type: none;
+}
+.contacts__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.contacts__item:first-child {
+  margin-bottom: 28px;
+}
+.contacts__inst-wrapper {
+  width: 57px;
+  height: 57px;
+}
+.contacts__icon {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.contacts__link {
+  color: #FFFFFF;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  text-decoration: none;
+}
+.contacts__tel-wrapper {
+  width: 44px;
+  height: 44px;
+}
+.contacts__tel {
+  color: #FFFFFF;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+}
+.contacts__image-box {
+  max-width: 477px;
+  position: relative;
+}
+.contacts__image-wrapper {
+  width: 354px;
+  height: 520px;
+  position: relative;
+  z-index: 0;
+}
+.contacts__image-wrapper::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #237249;
+  position: absolute;
+  z-index: -1;
+  top: 27px;
+  left: 34px;
+}
+.contacts__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.contacts__star-wrapper {
+  width: 245px;
+  height: 245px;
+  position: absolute;
+  top: -70px;
+  left: -90px;
+}
+.contacts__star-wrapper::after {
+  content: "";
+  width: 328px;
+  height: 262px;
+  border-radius: 50%;
+  background-color: rgba(53, 198, 107, 0.2);
+  filter: blur(78.2708px);
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: -1;
+}
+.contacts__star {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.contacts__star-text {
+  color: #FFFFFF;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 39px;
+  line-height: 34px;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=style.css.map */
