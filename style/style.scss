@@ -8,8 +8,13 @@ $lightFontColor: #D9D9D9;
 $darkFontColor: #121517;
 $bgColor: #121517;
 $whiteFontColor: #FFFFFF;
-$gradientBtnColor: linear-gradient(265.23deg, #237249 6.79%, #35C66B 97.2%);
+$gradientBtnColor: linear-gradient(265deg, #237249 7%, #35C66B 97%);
+$gradientBtnHover: linear-gradient(265deg, #0b4125 7%, #cbf0d9 97%);
+$gradientBtnActive: linear-gradient(265deg, #cbf0d9 7%, #0b4125 97%);
 $gradientColor: linear-gradient(267.2deg, #237249 3.05%, #35C66B 75.72%);
+$dark: #121517;
+$darkHover: linear-gradient(265deg, #121517 10%, #515c62 90%);
+$darkActive: linear-gradient(265deg, #515c62 10%, #121517 90%);
 
 body {
     background-color: $bgColor;
@@ -139,6 +144,14 @@ body {
         border: none;
         background: $gradientBtnColor;
         cursor: pointer;
+        &:hover {
+            background: $gradientBtnHover;
+            transform: scale(1.05);
+        }
+        &:active {
+            background: $gradientBtnActive;
+            transform: scale(1.03);
+        }
     }
     &__btn-wrapper {
         position: relative;
@@ -151,9 +164,19 @@ body {
         line-height: 35px;
         padding: 19px 53px;
         border-radius: 83px;
-        background-color: $darkFontColor;
+        background-color: $dark;
         border: none;  
         cursor: pointer;
+        &:hover {
+            background: $darkHover;
+            transform: scale(1.05);
+            border:#000000 solid 1px
+        }
+        &:active {
+            background: $darkActive;
+            transform: scale(1.03);
+            border:#000000 solid 1px;
+        }
     }
     &__btn-bg {
         position: absolute;
@@ -246,8 +269,11 @@ body {
 
 }
 .adv {
-    position: relative;
     margin-bottom: 136px;
+    &__container {
+        max-width: 1253px;
+        margin: 0 auto;
+    }
     &__card {
         max-width: 1029px;
         margin: 0 auto;
@@ -259,6 +285,32 @@ body {
         background: linear-gradient(264.52deg, #FFFFFF 4.95%, #E5E5E5 64.19%, #FBFBFB 88.37%);
         border-radius: 46px; 
         position: relative; 
+    }
+    &__star-wrapper {
+         width: 202px;
+         height: 202px;
+         position: absolute;
+         top: -55px;
+         left: -65px;
+    }
+    &__star {
+         object-fit: contain;
+    }
+    &__star-text {
+        color: $whiteFontColor;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 28px;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        text-align: center;
+        max-width: 120px;
+        position: absolute;
+        top: 38%;
+        left: 45%;
+        transform: translate(-50%, -50%);
     }
        &__card::before {
         content: ""; 
@@ -323,28 +375,8 @@ body {
         line-height: 33px;
         color: $darkFontColor;
     }
-    &__star-wrapper {
-        position: absolute;
-        top: -70px;
-        left: 160px;
-        width: 155px;
-        height: 155px;
-    }
-    &__star-text {
-        position: absolute;
-        top: 75px;
-        left: 93px;
-        transform: translate(-50%, -50%);
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 28px;
-        text-transform: uppercase;
-        text-align: center;
-        color: $whiteFontColor;
-    }
 }
-.cooking {
+.process {
     margin-bottom: 91px;
     position: relative;
     &__container {
@@ -786,6 +818,9 @@ body {
     &__inst-wrapper {
         width: 57px;
         height: 57px;
+        padding: 10px;
+        background: $gradientColor;
+        border-radius: 12px;
     }
     &__icon {
         width: 100%;
@@ -802,8 +837,11 @@ body {
         text-decoration: none;
     }
     &__tel-wrapper {
-        width: 44px;
-        height: 44px;        
+        width: 57px;
+        height: 57px;
+        padding: 13px;
+        background: $gradientColor;
+        border-radius: 12px;        
     }
     &__tel {
         color: $whiteFontColor;
@@ -877,4 +915,120 @@ body {
     }
 }
 
-
+.footer {
+    background-color: #0B0C0D; 
+    &__container {
+        max-width: 1253px;
+        margin: 0 auto;  
+    }
+    &__info {
+        display: flex;
+        align-items: start;
+        gap: 107px;
+        margin-bottom: 89px;
+    }
+    &__logo {
+        background: $gradientFontColor;
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+       font-family: "Montserrat", sans-serif;
+       font-weight: 800;
+       font-size: 38px;
+       line-height: 41px;
+       text-transform: capitalize;
+       margin-top: 22px;
+       position: relative;
+    }
+    &__logo::after {
+        content: "";
+        width: 177px;
+        height: 66px;
+        border-radius: 50%;
+        background-color: rgba(53, 198, 107, 0.15);
+        filter: blur(87.75px);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+    &__nav {
+        margin-top: 31px;
+    }
+    &__columns {
+        display: flex;
+        align-items: start;
+        gap: 82px;        
+    }
+    &__list-title {
+        color: #BBB3B3;
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        text-transform: capitalize;
+        margin-bottom: 8px;
+    }
+    &__list {
+        list-style-type: none;
+    }
+    &__item {
+        color: rgba(187, 179, 179, 0.43);
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+    }
+    &__btn {
+        width: 84px;
+        height: 84px;
+        border: none;
+        background-color: transparent;
+        margin-top: 22px;
+        cursor: pointer;
+        position: relative;
+    }
+    &__btn::after {
+        content: ""; 
+        width: 322px; 
+        height: 277px;
+        border-radius: 50%; 
+        background-color: rgba(255, 255, 255, 0.12); 
+        filter: blur(78.2708px); 
+        position: absolute; 
+        top:  -100px;
+        left: -150px;
+        z-index: -1;
+    }
+    &__contacts {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 52px;
+    }
+    &__tel {
+       background: $gradientFontColor;
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+       font-family: "Montserrat", sans-serif;
+       font-weight: 500;
+       font-size: 26px;
+       line-height: 32px;
+    }
+    &__icon-wrapper {
+        width: 46px;
+        height: 46px;
+        background: $gradientColor;
+        border-radius: 12px;
+    }
+    &__icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
