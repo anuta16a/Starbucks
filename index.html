@@ -15,15 +15,15 @@
           <p class ="header__logo logo">StarBucks</p>
           <nav class="header__nav">
             <ul class="header__list">
-              <li class="header__item"><a class="header__link" href="#home">Home</a></li>
-              <li class="header__item"><a class="header__link" href="#select">Select</a></li>
-              <li class="header__item"><a class="header__link" href="#shop">Shop</a></li>
+              <li class="header__item"><a class="header__link" href="#hero">Home</a></li>
+              <li class="header__item"><a class="header__link" href="#products">Select</a></li>
+              <li class="header__item"><a class="header__link" href="#events">Shop</a></li>
             </ul>
           </nav>
         </div>
     </header>
     <main class="main">
-        <section class="hero" id="home">
+        <section class="hero" id="hero">
          <div class="hero__container container">
             <div class="hero__text-box">
               <h1 class="hero__title">New Cafe by <span class="hero__logo logo">StarBucks</span></h1>
@@ -209,7 +209,7 @@
           </div>
          </div>
         </section>
-        <section class="process">
+        <section class="process" id="process">
           <div class="container process__container">
             <div class="process__image-box">
               <div class="process__image-wrapper">
@@ -260,14 +260,14 @@
             </svg>
           </div>
         </section>
-        <section class="products">
+        <section class="products" id="products">
           <div class="products__text-box">
             <p class="products__description">Have time to buy the most harmonious drinks in the new Starbucks coffee and don't forget about the discount!  Starbucks coffee and don't forget about the discount!</p>
             <h2 class="products__title">New Our <span class="products__gradient-text">Products</span></h2>
           </div>
           <div class="section__slides"></div>
         </section>
-        <section class="events">
+        <section class="events" id="events">
          <div class="events__container">
           <div class="events__text-box">
             <p class="events__description">Only in 2021 we have made more than 100,000 orders for you, your loved ones, all of you, and in 2022 we are ready to destroy the market</p>
@@ -318,7 +318,7 @@
           </div>          
           </div>
         </section>
-        <section class="contacts">
+        <section class="contacts" id="contacts">
           <div class="contacts__container">
             <div class="contacts__text-box">
               <h2 class="contacts__title">Our <span class="contacts__gradient-text">Contacts</span></h2>
@@ -326,13 +326,13 @@
               <ul class="contacts__list">
                 <li class="contacts__item">
                   <div class="contacts__inst-wrapper">
-                    <img src="images/contacts-icon1.png" alt="instagram icon" class="contacts__icon">
+                    <img src="images/contacts-icon1.png" alt="instagram icon" class="contacts__icon contacts__icon-inst">
                   </div>
                   <a rel="stylesheet" href="#" class="contacts__link">@supercoffee</a>
                 </li>
                 <li class="contacts__item">
                   <div class="contacts__tel-wrapper">
-                    <img src="images/contacts-icon2.png" alt="telephone icon" class="contacts__icon">
+                    <img src="images/contacts-icon2.png" alt="telephone icon" class="contacts__icon contacts__icon--tel">
                   </div>
                 <p class="contacts__tel">+7-999-999-99-99</p>
                 </li>
@@ -382,20 +382,20 @@
           <nav class="footer__nav">
             <ul class="footer__columns">
               <li class="footer__column">
-                <h3 class="footer__list-title">Main</h3>
+                <h3 class="footer__list-title"><a class="footer__list-link" href="#hero">Main</a></h3>
                 <ul class="footer__list">
                   <li class="footer__item">Buy</li>
                   <li class="footer__item">More</li>
                 </ul>
               </li>
               <li class="footer__column">
-                <h3 class="footer__list-title">We make</h3>
+                <h3 class="footer__list-title"><a class="footer__list-link" href="#process">We make</a></h3>
                 <ul class="footer__list">
                   <li class="footer__item">Process</li>
                 </ul>
               </li>
               <li class="footer__column">
-                <h3 class="footer__list-title">Products</h3>
+                <h3 class="footer__list-title"><a class="footer__list-link" href="#products">Products</a></h3>
                 <ul class="footer__list">
                   <li class="footer__item">Cappuccino</li>
                   <li class="footer__item">Latte</li>
@@ -403,14 +403,14 @@
                 </ul>
               </li>
               <li class="footer__column">
-                <h3 class="footer__list-title">Events</h3>
+                <h3 class="footer__list-title"><a class="footer__list-link" href="#events">Events</a></h3>
                 <ul class="footer__list">
                   <li class="footer__item">Drinks</li>
                   <li class="footer__item">Eat</li>
                 </ul>              
               </li>
               <li class="footer__column">
-                <h3 class="footer__list-title">Contacts</h3>
+                <h3 class="footer__list-title"><a class="footer__list-link" href="#contacts">Contacts</a></h3>
                 <ul class="footer__list">
                   <li class="footer__item">Instagram</li>
                   <li class="footer__item">Number</li>
@@ -437,9 +437,9 @@
         </div>
         <div class="footer__contacts">
           <p class="footer__tel">+7-999-999-99-99</p>
-          <div class="footer__icon-wrapper">
+          <a class="footer__icon-link" href="#">
             <img src="images/contacts-icon1.png" alt="instagram icon" class="footer__icon">
-          </div>
+          </a>
         </div>
       </div>
    </footer>
