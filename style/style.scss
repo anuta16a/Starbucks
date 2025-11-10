@@ -24,6 +24,20 @@ $itemFooter: rgba(187, 179, 179, 0.43);
 $bgBtn: linear-gradient(135deg, #D9D9D9, #121517);
 $black: #000000;
 
+@mixin font ($fontWeight, $fontSize, $lineHeight, $letterSpacing) {
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    letter-spacing: $letterSpacing;
+}
+@mixin decoration ($maxWidth, $maxHeight, $opacity, $top, $left) {
+    max-width: $maxWidth;
+    max-height: $maxHeight;
+    opacity: $opacity;
+    top: $top;
+    left: $left;
+}
+
 %green-decorations {
     content: "";
     border-radius: 50%;
@@ -31,6 +45,8 @@ $black: #000000;
     filter: blur(88px);
     position: absolute;
     z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 %white-decorations {
     content: "";
@@ -39,15 +55,18 @@ $black: #000000;
     filter: blur(88px);
     position: absolute;
     z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 
-@mixin font ($fontWeight, $fontSize, $lineHeight, $letterSpacing) {
-    font-weight: $fontWeight;
-    font-size: $fontSize;
-    line-height: $lineHeight;
-    letter-spacing: $letterSpacing;
+%logo {
+     background: $gradient;
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+       @include font(800, 38px, 41px, -0.03em);
+       text-transform: capitalize;
 }
-
 
 @-webkit-keyframes shake-lr {
   0%,
@@ -152,30 +171,41 @@ body {
     background-color: $dark;
 }
 .container {
-    max-width: 1295px;
     width: 100%;
     margin: 0 auto;
 }
 .header {
     padding: 48px 0 40px;
     &__container {
+       max-width: 1294px;
        display: flex;
        align-items: center;
        gap: 94px;
     }
+     @media (max-width: 768px) {
+       &__container {
+        max-width: 380px;
+        justify-content: space-between;
+       }
+    }
     &__logo {
-       background: $gradient;
-       -webkit-background-clip: text;
-       background-clip: text;
-       color: transparent;
-       @include font(800, 38px, 41px, -0.03em);
-       text-transform: capitalize;
+      @extend %logo;
+    }
+    @media (max-width: 768px) {
+       &__logo {
+        @include font (800, 22px, 24px, -0.03em)
+       }
     }
     &__list {
        display: flex;
        align-items: center;
        gap: 94px;
        list-style-type: none;
+    }
+    @media (max-width: 768px) {
+       &__list {
+            display: none;
+       }
     }
     &__link {
         color: $light;
@@ -190,20 +220,42 @@ body {
            color: $linkActive;
         }
     }
+    &__nav-mobile {
+        display: none;
+    }
+    @media (max-width: 768px) {
+       &__nav-mobile {
+        display: block;
+       }
+    }
 }
+
 .hero {
     &__container {
+        max-width: 1294px;
         display: flex;
         align-items: center;
-        gap: 150px;
+        justify-content: space-between;
         padding-bottom: 120px;
         position: relative;
+    }
+    @media (max-width: 768px) {
+       &__container {
+        max-width: 380px;
+        display: block;
+        }
     }
     &__decoration {
         position: absolute;
         top: 25%;
         left: 50%;
         z-index: -1;
+    }
+    @media (max-width: 768px) {
+       &__decoration {
+        top: 60%;
+        left: -50%;
+       }
     }
     &__text-box {
         max-width: 574px;
@@ -217,12 +269,14 @@ body {
         position: relative;
         &::after {
             @extend %green-decorations;
-            width: 324px;
-            height: 324px;
-            opacity: 0.2;
-            top: 0;
-            left: -10%;
+            @include decoration (324px, 324px, 0.2, 0, -10%);
         }
+    }
+    @media (max-width: 768px) {
+       &__title {
+        @include font(800, 48px, 53px, -0.03em);
+        margin-bottom: 36px;
+       }
     }
     &__gradient-text {
         background: $gradient;
@@ -235,6 +289,12 @@ body {
         @include font(400, 20px, 33px, -0.02em);
         margin-bottom: 54px;
     }
+    @media (max-width: 768px) {
+       &__description {
+        @include font(400, 12px, 20px, -0.02em);
+        margin-bottom: 36px;
+       }
+    }
     &__btn-box {
         display: flex;
         align-items: center;
@@ -243,12 +303,14 @@ body {
         position: relative;
         &::after {
             @extend %white-decorations;
-            width: 289px;
-            height: 289px;
-            opacity: 0.12;
-            top: -60%;
-            left: 55%;
+            @include decoration (289px, 289px, 0.12, 0, 40%);
         }
+    }
+    @media (max-width: 768px) {
+       &__btn-box {
+        gap: 11px;
+        margin-bottom: 36px;
+       }
     }
     &__btn--green {
         color: $white;
@@ -269,6 +331,14 @@ body {
             transform: scale(1);
         }
     }
+    @media (max-width: 768px) {
+       &__btn-green {
+        @include font(639, 16px, 24px, -0.02em);
+        padding: 13px 53px;
+       }
+    }
+
+
     &__btn-wrapper {
         position: relative;
     }
@@ -325,16 +395,18 @@ body {
         @include font(400, 20px, 29px, -0.02em);
     }
     &__image-box {
-        width: 516px;
-        height: 613px;
+        max-width: 516px;
+        max-height: 613px;
+        width: 100%;
+        height: 100%;
         position: relative;
+        &::before {
+            @extend %white-decorations;
+            @include decoration (229px, 229px, 0.2, 0, -10%);
+        }
         &::after {
             @extend %green-decorations;
-            width: 324px;
-            height: 324px;
-            opacity: 0.2;
-            top: 50%;
-            left: 40%;
+            @include decoration (324px, 324px, 0.2, 70%, 40%);
         }
     }
     &__cup-wrapper {
@@ -344,27 +416,24 @@ body {
     &__cup {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        transform: scale(1.3);  
     }
     &__star-wrapper {
         position: absolute;
-        top: -70px;
-        right: 50px;
-        width: 232px;  
-        height: 232px;
-    }
-    &__star {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        top: 10%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        max-width: 232px;  
+        max-height: 232px;
     }
     &__discount {
         color: $white;
         @include font(500, 50px, 45px, -0.02em);
         position: absolute;
-        top: 100px;
-        left: 75px;
-        transform: rotate(340deg);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(340deg);
     }
 
 }
@@ -387,37 +456,20 @@ body {
         position: relative; 
         &::before {
             @extend %green-decorations;
-            width: 409px; 
-            height: 325px;
-            opacity: 0.2;
-            top: -30px; 
-            left: -150px;
+            @include decoration (409px, 325px, 0.2, -30%, -10%);
         }
         &::after {
             @extend %white-decorations;
-            width: 266px;
-            height: 229px;
-            opacity: 0.3;
-            top: 300px;
-            left: 800px;
+            @include decoration (266px, 229px, 0.3, 70%, 80%);
         }
     }
     &__star-wrapper {
-        max-width: 202px;
-        max-height: 202px;
-        padding: 48px;
+        max-width: 154px;
+        max-height: 154px;
         position: absolute;
-        top: -55px;
-        left: -65px;
-    }
-    &__star {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         &:hover {
-            -webkit-animation: rotate-center 8s linear infinite both;
-	        animation: rotate-center 8s linear infinite both;
-        }
+        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
     }
     &__star-text {
         color: $white;
@@ -426,8 +478,8 @@ body {
         text-align: center;
         max-width: 120px;
         position: absolute;
-        top: 38%;
-        left: 45%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
     }
     &__item {
@@ -440,11 +492,6 @@ body {
         max-height: 230px;
         margin-bottom: 12px;
         position: relative;
-    }
-    &__circle {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
     &__image {
         position: absolute;
@@ -468,6 +515,7 @@ body {
     margin-bottom: 91px;
     position: relative;
     &__container {
+        max-width: 1294px;
         display: flex;
         align-items: center;
         gap: 289px;
@@ -506,23 +554,16 @@ body {
         object-fit: cover;
     }
     &__star-wrapper {
-        max-width: 245px;
-        max-height: 245px;
+        max-width: 161px;
+        max-height: 161px;
         position: absolute;
-        top: -50px;
-        left: 260px;
+        top: 0;
+        right: 0;
         &::after {
             @extend %white-decorations;
-            width: 299px;
-            height: 257px;
-            opacity: 0.1;
-            top: 50px;
-            left: 40px;
-        }    
-    }
-    &__star {
-        object-fit: contain;
-    }
+            @include decoration (229px, 257px, 0.1, 20%, 10%);
+        }  
+    }  
     &__star-text {
         color: $white;
         @include font(500, 39px, 34px, -0.02em);
@@ -530,8 +571,8 @@ body {
         text-align: center;
         max-width: 120px;
         position: absolute;
-        top: 125px;
-        left: 125px;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
     }
     &__text-box {
@@ -545,11 +586,7 @@ body {
         position: relative;
         &::after {
             @extend %green-decorations;
-            width: 310px;
-            height: 267px;
-            opacity: 0.2;
-            top: 15px;
-            left: 170px;
+            @include decoration (310px, 267px, 0.2, 40%, 30%);
         }
     }
     &__gradient-text {
@@ -608,13 +645,26 @@ body {
 }
 .products {
     margin-bottom: 100px;
+    &__container {
+        max-width: 1253px;
+    }
     &__text-box {
         display: flex;
         align-items: center;
         gap: 72px;
         padding-left: 130px;
-        max-width: 1253px;
-        margin: 0 auto;
+        margin-bottom: 50px;
+
+        @media (max-width: 900px) {
+            padding-left: 2vw;
+            gap: 32px;
+        }
+        @media (max-width: 600px) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 0;
+            gap: 16px;
+        }
     }
     &__title {
         color: $white;
@@ -623,11 +673,7 @@ body {
         position: relative;
         &::after {
             @extend %green-decorations;
-            width: 289px;
-            height: 245px;
-            opacity: 0.2;
-            top: 15px;
-            left: 170px;
+            @include decoration (289px, 245px, 0.2, 50%, 50%);
         }
     }
     &__gradient-text { 
@@ -636,17 +682,159 @@ body {
         background-clip: text;
         color: transparent;
     }
-        &__description {
+    &__description {
         color: $light;
         @include font(400, 20px, 33px, -0.02em);
         max-width: 444px;
+    }
+    &__swiper-wrapper {
+        padding: 10px 0;
+    }
+    &__slide {
+       max-width: 277px;
+       width: 100%; 
+       border-radius: 29px;
+       padding: 58px 30px 44px;
+       position: relative;
+       &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 29px;
+            background-color: $dark;
+            z-index: -1;
+       }
+       &::after {
+            content: "";
+            position: absolute;
+            top: -1.5px;
+            left: -1.5px;
+            width: calc(100% + 1.5px);
+            height: calc(100% + 1.5px);
+            border-radius: 29px;
+            background: $bgBtn;
+            z-index: -2;
+        }
+    }
+    &__slide-media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__circle-wrapper {
+        max-width: 182px;
+        max-height: 182px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    &__img-wrapper {
+        max-width: 180px;
+        max-height: 241px;
+        width: 100%;
+        height: 100%;       
+        position: absolute;
+        top: 5%;
+        left: 15%;
+    }
+    &__cup {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    &__cup--green {
+        transform: scale(1.35);
+    }
+    &__cup--yellow {
+        transform: scale(1.55);
+    }
+    &__cup--brown {
+        transform: scale(1.4);
+    }
+    &__slide-text {
+        text-align: center;
+    }
+    &__slide-title {
+        color: $white;
+        @include font(500, 32px, 52px, -0.02em);
+        margin-bottom: 18px;
+    }
+    &__slide-description {
+        color: $light;
+        @include font(400, 20px, 33px, -0.02em);
+        margin-bottom: 7px;
+    }
+    &__slide-parametres {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        margin-bottom: 30px;
+    }
+    &__slide-price {
+        color: $white;
+        @include font(500, 32px, 52px, -0.02em);
+    }
+    &__slide-size {
+        color: $light;
+        @include font(400, 20px, 33px, -0.02em);
+    }
+    &__slide-btn {
+        color: $white;
+        @include font(639, 17px, 25px, -0.02em);
+        border: none;
+        background: $gradient;
+        border-radius: 60px;
+        padding: 14px 38.5px;
+        cursor: pointer;
+        transition: all 0.15s linear;
+        &:hover {
+            background: $gradientHover;
+            transform: scale(1.05);
+            box-shadow: 0 0 18px 6px $greenShadow;
+        }
+        &:active {
+            background: $gradientActive;
+            transform: scale(1);
+        }
+    }
+    &__btn-prev {
+        max-width: 84px;
+        max-height: 84px;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        transform: rotate(180deg);
+        transition: all 0.15s linear;
+        &:hover {
+            transform: rotate(180deg) scale(1.05);
+        }
+        &:active {
+            transform: rotate(180deg) scale(0.9);
+        }
+    }
+    &__btn-next {
+        max-width: 84px;
+        max-height: 84px;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        transition: all 0.15s linear;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(0.9);
+        }
     }
 }
 .events {
     margin-bottom: 150px;
     &__container {
         max-width: 1253px;
-        margin: 0 auto;
         position: relative;
     }
    &__decoration {
@@ -689,19 +877,11 @@ body {
         position: relative;
         &::before {
             @extend %green-decorations;
-            width: 255px;
-            height: 204px;
-            opacity: 0.2;
-            top: -50px;
-            left: 600px;
+            @include decoration (255px, 204px, 0.2, 0, 50%);
         }
         &::after {
             @extend %white-decorations;
-            width: 320px;
-            height: 277px;
-            opacity: 0.12;
-            top: 50px;
-            left: 615px; 
+            @include decoration (320px, 277px, 0.12, 50%, 40%);
         }
     }  
     &__card {
@@ -795,11 +975,10 @@ body {
 .contacts {
     margin-bottom: 108px;
     &__container {
-        max-width: 1253px;
-        margin: 0 auto;
+        max-width: 1243px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content:space-between;
         position: relative;
     }
     &__decoration {
@@ -813,18 +992,12 @@ body {
     }
     &__title {
         color: $white;
-        font-weight: 800;
-        font-size: 80px;
-        line-height: 88px;
-        letter-spacing: -0.03em;
+        @include font(800, 80px, 88px, -0.03em);
         max-width: 392px;
         position: relative;
         margin-bottom: 52px;
     }    
     &__gradient-text {
-        font-weight: 800; 
-        font-size: 80px; 
-        line-height: 88px;
         background: $gradient; 
         -webkit-background-clip: text;
         background-clip: text;
@@ -832,19 +1005,12 @@ body {
     }
     &__description {
         color: $light;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 33px;
-        letter-spacing: -0.02em;
+        @include font(400, 20px, 33px, -0.02em);
         margin-bottom: 56px;
         position: relative;
         &::after {
             @extend %green-decorations;
-            width: 328px;
-            height: 262px;
-            opacity: 0.15;
-            top: -50px;
-            left: 0px;
+            @include decoration (328px, 262px, 0.3, 0, 10%);
         }
     }   
     &__list {
@@ -877,10 +1043,8 @@ body {
         }
     }
     &__link {
-        color: $white; 
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 42px;
+        color: $white;
+        @include font(500, 32px, 42px, 0.0em); 
         text-decoration: none;
         transition: all 0.15s linear;
         &:hover {
@@ -905,10 +1069,7 @@ body {
     }
     &__tel {
         color: $white;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 42px;
+        @include font(500, 32px, 42px, 0.0em); 
         &:hover {
            user-select: all;
         }
@@ -939,18 +1100,15 @@ body {
         object-fit: cover;
     }
     &__star-wrapper {
-        width: 245px;
-        height: 245px;
+        max-width: 161px;
+        max-height: 161px;
         position: absolute;
-        top: -70px;
-        left: -90px;
+        top: 10%;
+        left: 10%;
+        transform: translate(-50%, -50%);
         &:after {
             @extend %green-decorations;
-            width: 328px;
-            height: 262px;
-            opacity: 0.2;
-            top: 40px;
-            left: -20px;
+            @include decoration (328px, 262px, 0.2, 0, -10%);
         }   
     }
     &__star {
@@ -958,9 +1116,7 @@ body {
     }
     &__star-text {
         color: $white;
-        font-weight: 500;
-        font-size: 39px;
-        line-height: 34px;
+        @include font(500, 39px, 34px, -0.02em); 
         text-transform: uppercase;
         text-align: center;
         max-width: 120px;
@@ -974,8 +1130,7 @@ body {
 .footer {
     background-color: $bgFooter; 
     &__container {
-        max-width: 1253px;
-        margin: 0 auto;  
+        max-width: 1255px;
     }
     &__info {
         display: flex;
@@ -985,29 +1140,16 @@ body {
         position: relative;
         &::after {
             @extend %white-decorations;
-            width: 322px;
-            height: 277px;
-            opacity: 0.12;
-            top: -20px;
-            left: 1000px;
+            @include decoration (322px, 277x, 0.12, -10%, 70%);
         }
     }
     &__logo {
-       color: transparent;
-       @include font(800, 38px, 41px, -0.03em);
-       text-transform: capitalize;
-       background: $gradient;
-       -webkit-background-clip: text;
-       background-clip: text;
+       @extend %logo;
        margin-top: 22px;
        position: relative;
         &::after {
             @extend %green-decorations;
-            width: 177px;
-            height: 66px;
-            opacity: 0.15;
-            top: 0px;
-            left: 0px;
+            @include decoration (177px, 66px, 0.15, 0, 0);
             z-index: 1;
         }
     }
